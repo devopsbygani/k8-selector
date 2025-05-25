@@ -1,0 +1,24 @@
+# this creates the pod in the node where label is gpu.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  namespace: demo
+  labels:
+    project: demo
+    tier: web
+    app: frontend
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: hardware
+            operator: In
+            values:
+            - gpu        
+  conatiners:
+  - name: nginx
+    image: nginx 
+

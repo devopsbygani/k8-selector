@@ -15,7 +15,9 @@ spec:
   conatiners:
   - name: nginx
     image: nginx 
-  tolerations:
+  nodeSelector:
+    hardware: gpu
+  tolerations:   # this will not guarntee the pod creation in tainted node.
   - key: "hardware"
     operator: "Equal"
     value: "gpu"
