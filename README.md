@@ -9,7 +9,10 @@
 
 #### Example command:
 ```bash
-kubectl taint nodes <node-name> key=value:NoSchedule
+kubectl taint node ip-192-168-22-49.ec2.internal hardware=gpu:NoSchedule
+o/p: node/ip-192-168-22-49.ec2.internal tainted
+
+
 ```
 ### Step 2: Understand Tolerations
 

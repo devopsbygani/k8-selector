@@ -12,7 +12,7 @@ metadata:
     tier: web
     app: frontend
 spec:
-  conatiners:
+  conatainers:
   - name: nginx
     image: nginx 
   nodeSelector:
