@@ -1,3 +1,22 @@
 # let's assume you have tainted a node.before proceding 
 # if not use. command
-# kubectl taint node <node > key=value:NoSchedule key=value:NoSchedule
+# kubectl taint node ip:190.134.56.10.expense  hardware=gpu:NoSchedule 
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  namespace: demo
+  labels:
+    project: demo
+    tier: web
+    app: frontend
+spec:
+  conatiners:
+  - name: nginx
+    image: nginx 
+  tolerations:
+  - key: "hardware"
+    operator: "Equal"
+    value: "gpu"
+    effect: "NoSchedule"
