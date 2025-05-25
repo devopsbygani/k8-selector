@@ -21,4 +21,5 @@ spec:
   conatiners:
   - name: nginx
     image: nginx 
+---
 
