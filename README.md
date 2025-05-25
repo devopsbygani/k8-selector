@@ -10,7 +10,7 @@
 #### Example command:
 ```bash
 kubectl taint nodes <node-name> key=value:NoSchedule
-
+```
 ### Step 2: Understand Tolerations
 
 A **toleration** is added to pod specs so they can be scheduled on nodes with taints.
