@@ -1,0 +1,25 @@
+# this creates the pod in the node where label is ram. if not avaiable then schedule it randomly
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-1
+  namespace: demo
+  labels:
+    project: demo
+    tier: web
+    app: frontend
+spec:
+  affinity:
+    nodeaffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:  # intentinally mentioned wrong label. hardware=ram is not labeled. 
+        - weight: 1
+          preference:
+            matchExpressions:
+            - key: hardware
+              operator: In
+              values:
+              - ram 
+  conatiners:
+  - name: nginx-1
+    image: nginx
+---
