@@ -25,3 +25,4 @@ tolerations:
     operator: "Equal"
     value: "value"
     effect: "NoSchedule"
+```

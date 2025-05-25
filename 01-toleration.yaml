@@ -1,0 +1,3 @@
+# let's assume you have tainted a node.before proceding 
+# if not use. command
+# kubectl taint node <node > key=value:NoSchedule key=value:NoSchedule
