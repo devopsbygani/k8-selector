@@ -78,11 +78,11 @@ affinity:
               values:
                 - production
 
-Pod will be scheduled only on nodes where env=production label exists.
+#Pod will be scheduled only on nodes where env=production label exists.
 ---
 
 ```
-###  Use Preferred Node Affinity (Optional)
+Use Preferred Node Affinity (Optional)
 
 This lets you suggest (not enforce) preferred nodes for scheduling.
 
@@ -98,8 +98,39 @@ affinity:
               values:
                 - production
 
-Pod will prefer nodes with env=production, but will still run elsewhere if needed.
+#Pod will prefer nodes with env=production, but will still run elsewhere if needed.
 ---
 
 ```
+### Step 3: Use Pod Affinity
 
+This allows the pod to be scheduled **with** other pods based on labels.
+```yaml
+affinity:
+  podAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+            - key: "app"
+              operator: "In"
+              values:
+                - backend
+        topologyKey: "kubernetes.io/hostname"
+```
+Pod will be scheduled on the same node as pods labeled app=backend.
+
+This prevents the pod from being scheduled **with certain other pods**.
+```yaml
+affinity:
+  podAntiAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+            - key: "app"
+              operator: "In"
+              values:
+                - frontend
+        topologyKey: "kubernetes.io/hostname"
+
+```
+Pod will avoid nodes that already run pods with label app=frontend
