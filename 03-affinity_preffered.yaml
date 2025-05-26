@@ -19,7 +19,7 @@ spec:
               operator: In
               values:
               - ram 
-  conatiners:
+  containers:
   - name: nginx-1
     image: nginx
 ---
