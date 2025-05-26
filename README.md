@@ -29,7 +29,7 @@ tolerations:
     value: "value"
     effect: "NoSchedule"
 ```
-
+#### Example for simple affinity:
 ```bash
 nodeSelector:
     hardware:gpu  
