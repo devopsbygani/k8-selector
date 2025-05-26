@@ -63,7 +63,7 @@ kubectl label nodes <node-name> node-type=high-memory
 kubectl get nodes --show-labels  # to verify the label
 ```
 
-### Step 2: Add Required Node Affinity in Pod YAML
+### Step 1: Add Required Node Affinity in Pod YAML
 
 Use this when you want your pod to run **only** on nodes that have a specific label.
 
@@ -102,7 +102,7 @@ affinity:
 ---
 
 ```
-### Step 3: Use Pod Affinity
+### Step 2: Use Pod Affinity
 
 This allows the pod to be scheduled **with** other pods based on labels.
 ```yaml
