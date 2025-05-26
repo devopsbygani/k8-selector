@@ -10,7 +10,7 @@ metadata:
     app: frontend
 spec:
   affinity:
-    nodeaffinity:
+    nodeAffinity:
       preferredDuringSchedulingIgnoredDuringExecution:  # intentinally mentioned wrong label. hardware=ram is not labeled. 
         - weight: 1
           preference:
