@@ -9,7 +9,7 @@ metadata:
     app: frontend
     purpose: affinity-of-nginx-1-pod
 spec:
-  conatiners:
+  containers:
   - name: nginx-1
     image: nginx
 ---
@@ -35,7 +35,7 @@ spec:
               values:
               - affinity-of-nginx-1-pod
           topologyKey: topology.kubernetes.io/zone
-  conatiners:
+  containers:
   - name: nginx-1
     image: nginx
 
