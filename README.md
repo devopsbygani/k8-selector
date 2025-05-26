@@ -81,8 +81,8 @@ affinity:
 Pod will be scheduled only on nodes where env=production label exists.
 ---
 
-```markdown
-### Step 3: Use Preferred Node Affinity (Optional)
+```
+###  Use Preferred Node Affinity (Optional)
 
 This lets you suggest (not enforce) preferred nodes for scheduling.
 
@@ -101,5 +101,5 @@ affinity:
 Pod will prefer nodes with env=production, but will still run elsewhere if needed.
 ---
 
-```markdown
+```
 
