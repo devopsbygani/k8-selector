@@ -54,3 +54,32 @@ To keep it simple and easy to remember:
 > - Affinity pulls things together  
 > - AntiAffinity pushes them apart
 
+### Label a Node
+Before using Node Affinity, label your node appropriately.
+
+#### Example command:
+```bash
+kubectl label nodes <node-name> node-type=high-memory
+kubectl get nodes --show-labels  # to verify the label
+```
+
+### Step 2.2: Add Required Node Affinity in Pod YAML
+
+Use this when you want your pod to run **only** on nodes that have a specific label.
+
+```yaml
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: "env"
+              operator: "In"
+              values:
+                - production
+                
+Pod will be scheduled only on nodes where env=production label exists.
+---
+
+```markdown
+
