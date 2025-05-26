@@ -32,7 +32,7 @@ spec:
               operator: In
               values:
               - affinity-of-nginx-1-pod
-          topologyKey: topology.kubernetes.io/zone
+          topologyKey: topology.kubernetes.io/hostname
   containers:
   - name: nginx-1
     image: nginx
