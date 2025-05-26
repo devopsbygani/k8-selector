@@ -18,7 +18,7 @@ spec:
             operator: In
             values:
             - gpu        
-  conatiners:
+  containers:
   - name: nginx
     image: nginx 
 ---
