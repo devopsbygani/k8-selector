@@ -32,7 +32,7 @@ spec:
               operator: In
               values:
               - affinity-of-nginx-1-pod
-          topologyKey: topology.kubernetes.io/hostname
+          topologyKey: topology.kubernetes.io/hostname  # this will schedule pod in other host,even if they exist in same region.
   containers:
   - name: nginx-1
     image: nginx
