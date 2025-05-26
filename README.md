@@ -29,3 +29,28 @@ tolerations:
     value: "value"
     effect: "NoSchedule"
 ```
+
+```bash
+nodeSelector:
+    hardware:gpu  
+```
+
+### Affinity vs AntiAffinity
+
+To keep it simple and easy to remember:
+
+- **Affinity** = "Attracts" pods  
+- **AntiAffinity** = "Repels" pods
+
+#### Node-level:
+- **Node Affinity** – Node attracts the pod
+- **Node AntiAffinity** – Node does **not** attract the pod
+
+#### Pod-level:
+- **Pod Affinity** – Pod attracts other pods (schedules together)
+- **Pod AntiAffinity** – Pod repels other pods (schedules apart)
+
+> Think of affinity like a **magnet**:  
+> - Affinity pulls things together  
+> - AntiAffinity pushes them apart
+
