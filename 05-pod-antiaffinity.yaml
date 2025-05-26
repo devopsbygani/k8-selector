@@ -26,13 +26,13 @@ spec:
   affinity:
     podAntiAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-        labelSelector:
-          matchExpressions:
-          - key: purpose
-            operator: In
-            values:
-            - affinity-of-nginx-1-pod
-        topologyKey: topology.kubernetes.io/zone
+        - labelSelector:
+            matchExpressions:
+            - key: purpose
+              operator: In
+              values:
+              - affinity-of-nginx-1-pod
+          topologyKey: topology.kubernetes.io/zone
   containers:
   - name: nginx-1
     image: nginx
